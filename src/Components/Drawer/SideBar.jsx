@@ -37,7 +37,7 @@ function Sidebar() {
             sx={{
                 width: 280,
                 height: '100vh',
-                position: 'sticky',
+                position: { xs: 'static', md: 'sticky' },
                 top: 0,
                 background: darkMode
                     ? 'linear-gradient(180deg, #1a1d29 0%, #0f1117 100%)'
