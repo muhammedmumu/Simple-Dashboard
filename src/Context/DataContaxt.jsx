@@ -8,35 +8,7 @@ function DataProvider({ children }) {
     const [products, setProducts] = useState(productsData); // Add products state
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [display, setDisplayProduct] = useState([]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    const [deleteProduct, setDeleteProduct] = useState(null);
     // Add product
     const handleAddProduct = (newProduct) => {
         const product = {
@@ -46,18 +18,18 @@ function DataProvider({ children }) {
             stock: 'In Stock',
         };
         setProducts([...products, product]);
-        setSelectedProduct(product);
+        // setSelectedProduct(product);
         alert(`Product added successfully! ${product.name}`);
     };
 
     // Delete product
     const handleDeleteProduct = (productId) => {
-        setProducts(products.filter(p => p.id !== productId));
-        if (selectedProduct?.id === productId) {
-            setSelectedProduct(null);
+        setProducts(products.filter((p) => p.id !== productId));
+        if (deleteProduct?.id === productId) {
+            setDeleteProduct(null);
         }
-        alert(`Product deleted successfully!`);
-    };
+
+    }
 
     // Edit product
     const handleEditProduct = (updatedProduct) => {
@@ -70,18 +42,21 @@ function DataProvider({ children }) {
         alert(`Product updated successfully! ${updatedProduct.name}`);
     }
 
-    // Close product details
+
 
     const value = {
-        products, // Add products to value
+        products,
         setProducts,
         display,
         setDisplayProduct,
         selectedProduct,
         setSelectedProduct,
         handleAddProduct,
+        handleEditProduct,
         handleDeleteProduct,
-        handleEditProduct
+        deleteProduct,
+        setDeleteProduct,
+
 
     };
 

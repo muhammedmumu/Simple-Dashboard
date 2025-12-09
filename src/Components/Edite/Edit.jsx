@@ -23,6 +23,7 @@ const EditProductCard = () => {
     }, [selectedProduct]);
 
     // handle input change
+    //updating the form data state when user types in the input fields
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
