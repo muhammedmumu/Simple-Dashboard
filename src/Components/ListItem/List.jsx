@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -28,31 +28,37 @@ const ProductList = () => {
         <Paper
             elevation={0}
             sx={{
-                background: 'rgba(26, 29, 41, 0.6)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(99, 102, 241, 0.1)',
-                borderRadius: 4,
+                background: 'rgba(26, 29, 41, 0.72)',
+                backdropFilter: 'blur(18px)',
+                border: '1px solid rgba(99, 102, 241, 0.12)',
+                borderRadius: 3,
                 overflow: 'hidden',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+                boxShadow: '0 14px 36px rgba(5, 10, 25, 0.22)',
             }}
         >
-            <Box sx={{ p: 3, pb: 2 }}>
+            <Box sx={{ p: { xs: 2, md: 2.5 }, pb: { xs: 1.5, md: 2 } }}>
                 <Typography
-                    variant="h5"
+                    variant="h6"
                     sx={{
                         fontWeight: 700,
                         background: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
                         backgroundClip: 'text',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
-                        mb: 3,
+                        mb: 2,
                     }}
                 >
                     Product List
                 </Typography>
 
-                <TableContainer>
-                    <Table>
+                <TableContainer sx={{ overflowX: 'hidden' }}>
+                    <Table
+                        size="small"
+                        sx={{
+                            width: '100%',
+                            tableLayout: 'fixed',
+                        }}
+                    >
                         <TableHead>
                             <TableRow>
                                 <TableCell
@@ -60,9 +66,10 @@ const ProductList = () => {
                                         color: 'rgba(255, 255, 255, 0.7)',
                                         fontWeight: 600,
                                         borderBottom: '1px solid rgba(99, 102, 241, 0.2)',
-                                        fontSize: '0.85rem',
+                                        fontSize: '0.76rem',
                                         textTransform: 'uppercase',
-                                        letterSpacing: '0.5px',
+                                        letterSpacing: '0.08em',
+                                        py: 1.2,
                                     }}
                                 >
                                     Image
@@ -72,9 +79,10 @@ const ProductList = () => {
                                         color: 'rgba(255, 255, 255, 0.7)',
                                         fontWeight: 600,
                                         borderBottom: '1px solid rgba(99, 102, 241, 0.2)',
-                                        fontSize: '0.85rem',
+                                        fontSize: '0.76rem',
                                         textTransform: 'uppercase',
-                                        letterSpacing: '0.5px',
+                                        letterSpacing: '0.08em',
+                                        py: 1.2,
                                     }}
                                 >
                                     Name
@@ -84,9 +92,10 @@ const ProductList = () => {
                                         color: 'rgba(255, 255, 255, 0.7)',
                                         fontWeight: 600,
                                         borderBottom: '1px solid rgba(99, 102, 241, 0.2)',
-                                        fontSize: '0.85rem',
+                                        fontSize: '0.76rem',
                                         textTransform: 'uppercase',
-                                        letterSpacing: '0.5px',
+                                        letterSpacing: '0.08em',
+                                        py: 1.2,
                                     }}
                                 >
                                     Price
@@ -96,9 +105,10 @@ const ProductList = () => {
                                         color: 'rgba(255, 255, 255, 0.7)',
                                         fontWeight: 600,
                                         borderBottom: '1px solid rgba(99, 102, 241, 0.2)',
-                                        fontSize: '0.85rem',
+                                        fontSize: '0.76rem',
                                         textTransform: 'uppercase',
-                                        letterSpacing: '0.5px',
+                                        letterSpacing: '0.08em',
+                                        py: 1.2,
                                     }}
                                 >
                                     Stock
@@ -109,9 +119,10 @@ const ProductList = () => {
                                         color: 'rgba(255, 255, 255, 0.7)',
                                         fontWeight: 600,
                                         borderBottom: '1px solid rgba(99, 102, 241, 0.2)',
-                                        fontSize: '0.85rem',
+                                        fontSize: '0.76rem',
                                         textTransform: 'uppercase',
-                                        letterSpacing: '0.5px',
+                                        letterSpacing: '0.08em',
+                                        py: 1.2,
                                     }}
                                 >
                                     Actions
@@ -125,24 +136,24 @@ const ProductList = () => {
                                     sx={{
                                         '&:hover': {
                                             background: 'rgba(99, 102, 241, 0.05)',
-                                            transform: 'scale(1.01)',
                                             transition: 'all 0.2s ease',
                                         },
                                         '& td': {
                                             borderBottom: '1px solid rgba(99, 102, 241, 0.1)',
+                                            py: 1.1,
                                         },
                                     }}
                                     onClick={() => setDisplayProduct(product)}
                                 >
-                                    <TableCell>
+                                    <TableCell sx={{ width: 72 }}>
                                         <Avatar
                                             src={product.image}
                                             variant="rounded"
                                             sx={{
-                                                width: 56,
-                                                height: 56,
+                                                width: 48,
+                                                height: 48,
                                                 border: '2px solid rgba(99, 102, 241, 0.3)',
-                                                boxShadow: '0 4px 12px rgba(99, 102, 241, 0.2)',
+                                                boxShadow: '0 3px 10px rgba(99, 102, 241, 0.18)',
                                             }}
                                         />
                                     </TableCell>
@@ -151,24 +162,27 @@ const ProductList = () => {
                                             sx={{
                                                 color: 'rgba(255, 255, 255, 0.9)',
                                                 fontWeight: 500,
-                                                fontSize: '0.95rem',
+                                                fontSize: '0.9rem',
+                                                whiteSpace: 'nowrap',
+                                                overflow: 'hidden',
+                                                textOverflow: 'ellipsis',
                                             }}
                                         >
                                             {product.name}
                                         </Typography>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell sx={{ width: 88 }}>
                                         <Typography
                                             sx={{
                                                 color: '#6366f1',
                                                 fontWeight: 700,
-                                                fontSize: '1rem',
+                                                fontSize: '0.92rem',
                                             }}
                                         >
                                             ${product.price}
                                         </Typography>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell sx={{ width: 92 }}>
                                         <Chip
                                             label={product.stock}
                                             size="small"
@@ -193,7 +207,7 @@ const ProductList = () => {
                                             }}
                                         />
                                     </TableCell>
-                                    <TableCell align="center">
+                                    <TableCell align="center" sx={{ width: 124 }}>
                                         <Box sx={{ display: 'flex', justifyContent: 'center', gap: 0.5 }}>
                                             <IconButton
                                                 size="small"

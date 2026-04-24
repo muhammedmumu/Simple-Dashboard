@@ -11,6 +11,8 @@ import Edit from '../Components/Edite/Edit';
 import TopAppBar from '../Components/AppBar/AppBar';
 import { DataContext } from '../Context/DataContaxt';
 
+const sidebarWidth = 264;
+
 const DashboardLayout = () => {
     const { selectedProduct } = useContext(DataContext);
     const theme = useTheme();
@@ -26,13 +28,14 @@ const DashboardLayout = () => {
             sx={{
                 display: 'flex',
                 minHeight: '100vh',
-                backgroundColor: 'background.default',
+                background: (theme) =>
+                    theme.palette.mode === 'dark'
+                        ? 'linear-gradient(180deg, #0b1020 0%, #111936 100%)'
+                        : 'linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%)',
             }}
         >
-            {/* App Bar */}
             <TopAppBar onMenuClick={handleMenuClick} />
 
-            {/* Sidebar */}
             {isMobile ? (
                 <Drawer
                     anchor="left"
@@ -40,8 +43,9 @@ const DashboardLayout = () => {
                     onClose={() => setSidebarOpen(false)}
                     sx={{
                         '& .MuiDrawer-paper': {
-                            width: 280,
+                            width: sidebarWidth,
                             boxSizing: 'border-box',
+                            background: 'transparent',
                         },
                     }}
                 >
@@ -51,32 +55,46 @@ const DashboardLayout = () => {
                 sidebarOpen && <Sidebar />
             )}
 
-            {/* Main Content */}
             <Box
                 component="main"
                 sx={{
                     flexGrow: 1,
-                    p: { xs: 2, sm: 3 },
-                    mt: 8,
-                    display: 'flex',
-                    flexDirection: { xs: 'column', lg: 'row' },
-                    gap: { xs: 2, sm: 3 },
+                    minWidth: 0,
+                    pt: { xs: 9, md: 10 },
+                    pb: { xs: 2, md: 3 },
+                    px: { xs: 1.5, sm: 2.5, md: 3 },
                     overflow: 'auto',
                 }}>
+                <Box
+                    sx={{
+                        width: '100%',
+                        maxWidth: 1580,
+                        mx: 'auto',
+                    }}
+                >
+                    <Box
+                        sx={{
+                            display: 'grid',
+                            gridTemplateColumns: {
+                                xs: '1fr',
+                                xl: 'minmax(0, 1.5fr) minmax(320px, 0.9fr) minmax(340px, 1fr)',
+                            },
+                            gap: { xs: 2, md: 2.5 },
+                            alignItems: 'start',
+                        }}
+                    >
+                        <Box sx={{ minWidth: 0 }}>
+                            <Lists />
+                        </Box>
 
-                {/* Left Section */}
-                <Box sx={{ flex: { xs: '1', lg: '1 40%' }, minWidth: 0 }}>
-                    <Lists />
-                </Box>
+                        <Box sx={{ minWidth: 0 }}>
+                            <Display />
+                        </Box>
 
-                {/* Middle Section */}
-                <Box sx={{ flex: { xs: '1', lg: '1 30%' }, minWidth: 0 }}>
-                    <Display />
-                </Box>
-
-                {/* Right Section */}
-                <Box sx={{ flex: { xs: '1', lg: '1 30%' }, minWidth: 0 }}>
-                    {selectedProduct ? <Edit /> : <AddProduct />}
+                        <Box sx={{ minWidth: 0 }}>
+                            {selectedProduct ? <Edit /> : <AddProduct />}
+                        </Box>
+                    </Box>
                 </Box>
             </Box>
         </Box>

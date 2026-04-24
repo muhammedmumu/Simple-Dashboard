@@ -65,25 +65,25 @@ const AddProduct = () => {
         <Paper
             elevation={0}
             sx={{
-                background: 'rgba(26, 29, 41, 0.6)',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(99, 102, 241, 0.1)',
-                borderRadius: 4,
+                background: 'rgba(26, 29, 41, 0.72)',
+                backdropFilter: 'blur(18px)',
+                border: '1px solid rgba(99, 102, 241, 0.12)',
+                borderRadius: 3,
                 overflow: 'hidden',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+                boxShadow: '0 14px 36px rgba(5, 10, 25, 0.22)',
                 height: '100%',
             }}
         >
-            <Box sx={{ p: 3 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
+            <Box sx={{ p: { xs: 2, md: 2.5 } }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2.25 }}>
                     <InventoryIcon
                         sx={{
                             color: '#6366f1',
-                            fontSize: 28,
+                            fontSize: 24,
                         }}
                     />
                     <Typography
-                        variant="h5"
+                        variant="h6"
                         sx={{
                             fontWeight: 700,
                             background: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
@@ -97,7 +97,7 @@ const AddProduct = () => {
                 </Box>
 
                 {/* Product Name Input */}
-                <Box sx={{ mb: 3 }}>
+                <Box sx={{ mb: 2.25 }}>
                     <Typography
                         variant="caption"
                         sx={{
@@ -121,7 +121,7 @@ const AddProduct = () => {
                         sx={{
                             '& .MuiOutlinedInput-root': {
                                 background: 'rgba(99, 102, 241, 0.05)',
-                                borderRadius: 3,
+                                borderRadius: 2.5,
                                 '& fieldset': {
                                     borderColor: 'rgba(99, 102, 241, 0.2)',
                                     borderWidth: 1,
@@ -139,14 +139,14 @@ const AddProduct = () => {
                             },
                             '& .MuiOutlinedInput-input': {
                                 color: 'rgba(255, 255, 255, 0.9)',
-                                fontSize: '0.95rem',
+                                fontSize: '0.9rem',
+                                py: 1.55,
                             },
                         }}
                     />
                 </Box>
 
-                {/* Price Input */}
-                <Box sx={{ mb: 3 }}>
+                <Box sx={{ mb: 2.25 }}>
                     <Typography
                         variant="caption"
                         sx={{
@@ -171,7 +171,7 @@ const AddProduct = () => {
                         sx={{
                             '& .MuiOutlinedInput-root': {
                                 background: 'rgba(99, 102, 241, 0.05)',
-                                borderRadius: 3,
+                                borderRadius: 2.5,
                                 '& fieldset': {
                                     borderColor: 'rgba(99, 102, 241, 0.2)',
                                     borderWidth: 1,
@@ -189,14 +189,14 @@ const AddProduct = () => {
                             },
                             '& .MuiOutlinedInput-input': {
                                 color: 'rgba(255, 255, 255, 0.9)',
-                                fontSize: '0.95rem',
+                                fontSize: '0.9rem',
+                                py: 1.55,
                             },
                         }}
                     />
                 </Box>
 
-                {/* Description Input */}
-                <Box sx={{ mb: 3 }}>
+                <Box sx={{ mb: 2.25 }}>
                     <Typography
                         variant="caption"
                         sx={{
@@ -222,7 +222,7 @@ const AddProduct = () => {
                         sx={{
                             '& .MuiOutlinedInput-root': {
                                 background: 'rgba(99, 102, 241, 0.05)',
-                                borderRadius: 3,
+                                borderRadius: 2.5,
                                 '& fieldset': {
                                     borderColor: 'rgba(99, 102, 241, 0.2)',
                                     borderWidth: 1,
@@ -240,14 +240,13 @@ const AddProduct = () => {
                             },
                             '& .MuiOutlinedInput-input': {
                                 color: 'rgba(255, 255, 255, 0.9)',
-                                fontSize: '0.95rem',
+                                fontSize: '0.9rem',
                             },
                         }}
                     />
                 </Box>
 
-                {/* Category Autocomplete */}
-                <Box sx={{ mb: 3 }}>
+                <Box sx={{ mb: 2.25 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
                         <CategoryIcon
                             sx={{
@@ -306,7 +305,7 @@ const AddProduct = () => {
                                 sx={{
                                     '& .MuiOutlinedInput-root': {
                                         background: 'rgba(99, 102, 241, 0.05)',
-                                        borderRadius: 3,
+                                        borderRadius: 2.5,
                                         '& fieldset': {
                                             borderColor: 'rgba(99, 102, 241, 0.2)',
                                         },
@@ -332,8 +331,7 @@ const AddProduct = () => {
                     />
                 </Box>
 
-                {/* Launch Date Picker */}
-                <Box sx={{ mb: 3 }}>
+                <Box sx={{ mb: 2.25 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
                         <CalendarTodayIcon
                             sx={{
@@ -365,7 +363,7 @@ const AddProduct = () => {
                                     sx: {
                                         '& .MuiOutlinedInput-root': {
                                             background: 'rgba(99, 102, 241, 0.05)',
-                                            borderRadius: 3,
+                                            borderRadius: 2.5,
                                             '& fieldset': {
                                                 borderColor: 'rgba(99, 102, 241, 0.2)',
                                             },
@@ -382,7 +380,8 @@ const AddProduct = () => {
                                         },
                                         '& .MuiOutlinedInput-input': {
                                             color: 'rgba(255, 255, 255, 0.9)',
-                                            fontSize: '0.95rem',
+                                            fontSize: '0.9rem',
+                                            py: 1.55,
                                         },
                                         '& .MuiIconButton-root': {
                                             color: 'rgba(255, 255, 255, 0.6)',
@@ -394,8 +393,7 @@ const AddProduct = () => {
                     </LocalizationProvider>
                 </Box>
 
-                {/* Add Product Button */}
-                <Box sx={{ mb: 3 }}>
+                <Box sx={{ mb: 2.25 }}>
                     <Button
                         fullWidth
                         variant="contained"
@@ -405,9 +403,9 @@ const AddProduct = () => {
                             background: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
                             color: '#fff',
                             fontWeight: 600,
-                            borderRadius: 3,
-                            py: 1.5,
-                            fontSize: '1rem',
+                            borderRadius: 2.5,
+                            py: 1.15,
+                            fontSize: '0.95rem',
                             textTransform: 'none',
                             boxShadow: '0 4px 15px rgba(99, 102, 241, 0.4)',
                             '&:hover': {
@@ -422,12 +420,11 @@ const AddProduct = () => {
                     </Button>
                 </Box>
 
-                {/* Info Box */}
                 <Box
                     sx={{
                         mt: 2,
-                        p: 2.5,
-                        borderRadius: 3,
+                        p: 2,
+                        borderRadius: 2.5,
                         background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%)',
                         border: '1px solid rgba(99, 102, 241, 0.2)',
                         backdropFilter: 'blur(10px)',

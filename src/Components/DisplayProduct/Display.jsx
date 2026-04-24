@@ -6,7 +6,6 @@ import AddIcon from '@mui/icons-material/Add';
 import InfoIcon from '@mui/icons-material/Info';
 import { DataContext } from '../../Context/DataContaxt';
 import React, { useContext } from 'react';
-import products from '../../Mock/Data';
 
 
 
@@ -20,13 +19,13 @@ function DisplayProduct() {
             elevation={0}
             sx={{
                 background: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
-                borderRadius: 4,
+                borderRadius: 3,
                 overflow: 'hidden',
                 position: 'relative',
-                minHeight: 350,
+                minHeight: { xs: 320, xl: 100 },
+                boxShadow: '0 18px 40px rgba(76, 81, 191, 0.28)',
             }}
         >
-            {/* Decorative background elements */}
             <Box
                 sx={{
                     position: 'absolute',
@@ -56,7 +55,7 @@ function DisplayProduct() {
                 sx={{
                     position: 'relative',
                     zIndex: 1,
-                    p: 3,
+                    p: { xs: 2.25, md: 2.5 },
                     height: '100%',
                     display: 'flex',
                     flexDirection: 'column',
@@ -67,7 +66,7 @@ function DisplayProduct() {
                     sx={{
                         color: 'rgba(255, 255, 255, 0.7)',
                         fontWeight: 600,
-                        letterSpacing: '1px',
+                        letterSpacing: '0.12em',
                         mb: 1,
                     }}
                 >
@@ -75,7 +74,7 @@ function DisplayProduct() {
                 </Typography>
 
                 <Typography
-                    variant="h5"
+                    variant="h6"
                     sx={{
                         color: '#fff',
                         fontWeight: 700,
@@ -85,14 +84,13 @@ function DisplayProduct() {
                     {display.name}
                 </Typography>
 
-                {/* Product Image */}
                 <Box
                     sx={{
                         flex: 1,
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        my: 2,
+                        my: 1.5,
                         position: 'relative',
                     }}
                 >
@@ -112,19 +110,18 @@ function DisplayProduct() {
                         alt="Gaming Headset"
                         sx={{
                             width: '100%',
-                            maxWidth: 280,
+                            maxWidth: 220,
                             height: 'auto',
                             objectFit: 'contain',
-                            filter: 'drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3))',
+                            filter: 'drop-shadow(0 16px 28px rgba(0, 0, 0, 0.25))',
                             position: 'relative',
                             zIndex: 1,
                         }}
                     />
                 </Box>
 
-                {/* Price */}
                 <Typography
-                    variant="h4"
+                    variant="h5"
                     sx={{
                         color: '#fff',
                         fontWeight: 800,
@@ -135,19 +132,17 @@ function DisplayProduct() {
                     {display.price}
                 </Typography>
 
-                {/* Description */}
                 <Typography
                     variant="body2"
                     sx={{
                         color: 'rgba(255, 255, 255, 0.8)',
-                        mb: 3,
-                        lineHeight: 1.6,
+                        mb: 2.25,
+                        lineHeight: 1.55,
                     }}
                 >
                     {display.description} </Typography>
 
-                {/* Action Buttons */}
-                <Box sx={{ display: 'flex', gap: 2 }}>
+                <Box sx={{ display: 'flex', gap: 1.25, flexWrap: 'wrap' }}>
                     <Button
                         variant="contained"
                         startIcon={<InfoIcon />}
@@ -157,8 +152,8 @@ function DisplayProduct() {
                             backdropFilter: 'blur(10px)',
                             color: '#fff',
                             fontWeight: 600,
-                            borderRadius: 3,
-                            py: 1.2,
+                            borderRadius: 2.5,
+                            py: 1,
                             border: '1px solid rgba(255, 255, 255, 0.3)',
                             boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
                             '&:hover': {
@@ -179,8 +174,8 @@ function DisplayProduct() {
                             background: '#fff',
                             color: '#6366f1',
                             fontWeight: 600,
-                            borderRadius: 3,
-                            py: 1.2,
+                            borderRadius: 2.5,
+                            py: 1,
                             boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
                             '&:hover': {
                                 background: '#f8f9fa',
@@ -189,7 +184,7 @@ function DisplayProduct() {
                             },
                             transition: 'all 0.3s ease',
                             alignItems: 'center',
-                            justifyContent: 'start',
+                            justifyContent: 'center',
                         }}
                     >
                         Add Product

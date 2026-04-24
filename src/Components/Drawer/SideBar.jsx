@@ -35,7 +35,7 @@ function Sidebar() {
         <Paper
             elevation={0}
             sx={{
-                width: 280,
+                width: 264,
                 height: '100vh',
                 position: { xs: 'static', md: 'sticky' },
                 top: 0,
@@ -48,13 +48,12 @@ function Sidebar() {
                     : '4px 0 24px rgba(0,0,0,0.05)',
                 display: 'flex',
                 flexDirection: 'column',
-                p: 2,
+                p: 1.75,
             }}
         >
-            {/* Logo/Brand */}
-            <Box sx={{ mb: 4, mt: 2 }}>
+            <Box sx={{ mb: 3, mt: 1.5 }}>
                 <Typography
-                    variant="h5"
+                    variant="h6"
                     sx={{
                         fontWeight: 700,
                         background: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
@@ -72,14 +71,16 @@ function Sidebar() {
             {/* Menu Items */}
             <List sx={{ flex: 1 }}>
                 {menuItems.map((item, index) => (
-                    <ListItem key={item.text} disablePadding sx={{ mb: 1 }}>
+                    <ListItem key={item.text} disablePadding sx={{ mb: 0.75 }}>
                         <ListItemButton
                             selected={selectedIndex === index}
                             onClick={() =>
                                 setSelectedIndex(index)
                             }
                             sx={{
-                                borderRadius: 3,
+                                minHeight: 44,
+                                borderRadius: 2.5,
+                                px: 1.5,
                                 transition: 'all 0.3s ease',
                                 '&.Mui-selected': {
                                     background: 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
@@ -104,17 +105,17 @@ function Sidebar() {
                             }}
                         >
                             <ListItemIcon
-                                sx={{
-                                    color: selectedIndex === index ? '#fff' : 'text.secondary',
-                                    minWidth: 40,
-                                }}
-                            >
-                                {item.icon}
+                            sx={{
+                                color: selectedIndex === index ? '#fff' : 'text.secondary',
+                                minWidth: 36,
+                            }}
+                        >
+                            {item.icon}
                             </ListItemIcon>
                             <ListItemText
                                 primary={item.text}
                                 primaryTypographyProps={{
-                                    fontSize: '0.95rem',
+                                    fontSize: '0.9rem',
                                     fontWeight: selectedIndex === index ? 600 : 400,
                                 }}
                             />
@@ -127,8 +128,8 @@ function Sidebar() {
             <Box
                 sx={{
                     mt: 'auto',
-                    p: 2,
-                    borderRadius: 3,
+                    p: 1.5,
+                    borderRadius: 2.5,
                     background: darkMode
                         ? 'rgba(99, 102, 241, 0.05)'
                         : 'rgba(99, 102, 241, 0.03)',
